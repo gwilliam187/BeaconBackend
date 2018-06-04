@@ -2,12 +2,30 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+// Connecting to MySQL
+const mysql = require('mysql');
+const myconn = require('express-myconnection');
+const config = require('./config');
+const dbOptions = {
+	host:	  config.database.host,
+	user: 	  config.database.user,
+	password: config.database.password,
+	port: 	  config.database.port, 
+	database: config.database.db
+};
+app.use(myconn(mysql, dbOptions, 'pool'))
+
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
-    // res.sendFile(path.join(__dirname + '/index.html'));
-    res.render('pages/index');
-});
+const route = require('./routes/routes');
+const api = require('./routes/api')
 
-app.listen(3000);
-console.log("Listening on port 3000");
+app.use('/', route);
+app.use('/api', api);
+
+app.use('/webarch', express.static(__dirname + "/views/webarch"));
+app.use('/assets', express.static(__dirname + "/views/assets"));
+
+app.listen(3000, function() {
+	console.log("Listening on port 3000");
+});

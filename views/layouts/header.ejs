@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title><%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    
+    <!-- Plugin CSS -->
+    <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-metrojs/MetroJs.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/shape-hover/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/shape-hover/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/owl-carousel/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/owl-carousel/owl.theme.css" />
+    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="assets/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="assets/plugins/Mapplic/mapplic/mapplic.css" type="text/css" media="screen">
+    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+
+		<!-- Core CSS -->
+		<link href="webarch/css/webarch.css" rel="stylesheet" type="text/css" />
+    <link href="webarch/css/custom-style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse ">
+    	<!-- BEGIN TOP NAVIGATION BAR -->
+    	<div class="navbar-inner">
+        <div class="header-seperation">
+        	<ul class="nav pull-left notifcation-center visible-xs visible-sm">
+          	<li class="dropdown">
+            		<a href="#main-menu" data-webarch="toggle-left-side">
+              		<i class="material-icons">menu</i>
+            		</a>
+          	</li>
+        	</ul>
+        	<!-- BEGIN LOGO -->
+        	<a>
+          	<img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21" />
+        	</a>
+        	<!-- END LOGO -->
+        	<ul class="nav pull-right notifcation-center">
+         		<li class="dropdown hidden-xs hidden-sm">
+            		<a href="/" class="dropdown-toggle active" data-toggle="">
+              		<i class="material-icons">home</i>
+            		</a>
+          	</li>
+        	</ul>
+        </div>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <div class="header-quick-nav">
+          <!-- BEGIN TOP NAVIGATION MENU -->
+          <div class="pull-left">
+            <ul class="nav quick-section">
+              <li class="quicklinks">
+                <a href="#" class="" id="layout-condensed-toggle">
+                  <i class="material-icons">menu</i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- END TOP NAVIGATION MENU -->
+          <!-- BEGIN CHAT TOGGLER -->
+          <div class="pull-right">
+            <ul class="nav quick-section">
+              <li class="quicklinks">
+                <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+                  <i class="material-icons">settings</i>
+                </a>
+                <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-options">
+                  <li>
+                    <a href="user-profile.html">My Account</a>
+                  </li>
+                  <li>
+                    <a href="login.html"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Log Out</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- END CHAT TOGGLER -->
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+      </div>
+      <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row-fluid">
+      <!-- BEGIN SIDEBAR -->
+      <div class="page-sidebar " id="main-menu">
+        <!-- BEGIN MINI-PROFILE -->
+        <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
+        <!-- END MINI-PROFILE -->
+          <!-- BEGIN SIDEBAR MENU -->
+          <ul>
+            <li <% if(module == "Home"){ %> class="active" <% }; %> >
+              <a href="index.html">
+                <i class="material-icons">home</i>
+                <span class="title">Dashboard</span>
+                <span class="selected"></span>
+              </a>
+            </li>
+            <li <% if(module == "Attendance"){ %> class="active" <% }; %> >
+              <a href="javascript:;"> <i class="material-icons">check_circle</i> <span class="title">Attendances</span> <span class=" arrow"></span> </a>
+              <ul class="sub-menu">
+                <li><a href="theme_coporate.html">Add Attendance</a></li>
+                <li><a href="theme_simple.html">View Attendances</a></li>
+              </ul>
+            </li>
+            <li <% if(module == "Class"){ %> class="active" <% }; %> >
+              <a href="javascript:;"> <i class="material-icons">calendar_today</i> <span class="title">Classes</span> <span class=" arrow"></span> </a>
+              <ul class="sub-menu">
+                <li><a href="theme_coporate.html">Add Class</a></li>
+                <li><a href="theme_simple.html">View Classes</a></li>
+              </ul>
+            </li>
+            <li <% if(module == "Course"){ %> class="active" <% }; %> >
+              <a href="email.html"><i class="material-icons">list_alt</i> <span class="title">Courses</span>
+              </a>
+            </li>
+            <li <% if(module == "Student"){ %> class="active" <% }; %> >
+              <a href="email.html"><i class="material-icons">people</i> <span class="title">Students</span>
+              </a>
+            </li>
+            <li <% if(module == "Major"){ %> class="active" <% }; %> >
+              <a href="email.html"><i class="material-icons">school</i> <span class="title">Majors</span>
+              </a>
+            </li>
+            <li <% if(module == "Room"){ %> class="active" <% }; %> >
+              <a href="email.html"><i class="material-icons">meeting_room</i> <span class="title">Rooms</span>
+              </a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+          <!-- END SIDEBAR MENU -->
+        </div>
+      </div>
+      <!-- END SIDEBAR -->
