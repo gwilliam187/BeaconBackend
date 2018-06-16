@@ -6,6 +6,14 @@ app.get('/currClass/:student_id/:beacon_id', function(req, res) {
 		let studentId = conn.escape(req.params.student_id);
 		// let beaconId = mysql.escape(req.params.beacon_id);
 		let beaconId = 'test';
+		// let sql = 
+		// 	'SELECT co.name, cl.start_time, cl.end_time ' +
+		// 	'FROM student_has_course sco ' +
+		// 	'INNER JOIN `course` co ON co.`course_id` = sco.`fk_course_id` ' +
+		// 	'INNER JOIN `class` cl ON cl.`fk_course_id` = (' +
+		// 		'SELECT fk_course_id FROM class WHERE fk_room_id = (' + 
+		// 				'SELECT room_id FROM room WHERE beacon="' + beaconId + '")) ' +
+		// 	'WHERE NOW() BETWEEN (cl.`start_time` - INTERVAL 5 MINUTE) AND (cl.`start_time` + INTERVAL 1 MINUTE)';
 		let sql = 
 			'SELECT co.name, cl.start_time, cl.end_time ' +
 			'FROM student_has_course sco ' +
@@ -13,15 +21,11 @@ app.get('/currClass/:student_id/:beacon_id', function(req, res) {
 			'INNER JOIN `class` cl ON cl.`fk_course_id` = (' +
 				'SELECT fk_course_id FROM class WHERE fk_room_id = (' + 
 						'SELECT room_id FROM room WHERE beacon="' + beaconId + '")) ' +
-			'WHERE NOW() BETWEEN (cl.`start_time` - INTERVAL 5 MINUTE) AND (cl.`start_time` + INTERVAL 1 MINUTE)';
+			'WHERE NOW() BETWEEN cl.`start_time` AND cl.`end_time`';
 		// console.log(sql);
 		conn.query(sql, function(err, rows, fields) {
 			if(err) throw err;
-			// if(!rows.length) {
-			// 	res.json(n) null;
-			// } else {
-			// 	return rows[0];
-			// }
+			
 			var resultJson = JSON.stringify(rows);
     		resultJson = JSON.parse(resultJson);
     		res.json(resultJson);

@@ -11,7 +11,8 @@ const dbOptions = {
 	user: 	  config.database.user,
 	password: config.database.password,
 	port: 	  config.database.port, 
-	database: config.database.db
+	database: config.database.db,
+	dateStrings: config.database.dateStrings
 };
 app.use(myconn(mysql, dbOptions, 'pool'))
 

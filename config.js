@@ -4,6 +4,7 @@ const config = {
 		user: 'root',
 		password: '',
 		port: 3306,
+		dateStrings: 'date',
 		db: 'beacon_db'
 	}
 }
